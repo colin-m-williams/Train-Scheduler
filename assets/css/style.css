@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Shrikhand');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #222;
+  color: #fff;
+  /* background-image: url('../images/bg.png');
+  background-repeat: repeat; */
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Shrikhand', cursive;
+}
+
+.container {
+  background: rgba(22,22,22,0.8);
+  margin-top: 7vh;
+  border-radius: 25px;
+  border: 15px double #ff8c00;
+  padding: 0 40px 20px 40px;
+}
+
+.jumbotron {
+  background: none;
+  text-shadow: 2px 2px 0px #ff8c00;
+}
+
+.subtitle {
+	color: #fff;
+}
+
+.btn {
+  background: #ff8c00;
+  color: #fff;
+  border: 2px #000 solid;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  transition-property: all;
+}
+
+.btn:hover {
+  color: #fff;
+  background: #000;
+  border: 2px #ff8c00 solid;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  vertical-align: middle;
+}
+
+.table>thead {
+  color: #ff8c00;
+}
+
+.current-time {
+  color: #ff8c00;
+  text-shadow: none;
+
+}
+
+.panel {
+  background: none;
+  border: 1px dotted #fff;
+}
+
+.panel-title {
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #ff8c00;
+  border-bottom: 1px dotted #fff;
+  margin: 10px 0;
+  padding: 0 0 10px 0;
+}
+
+.help-block {
+  color: #fff;
+}
