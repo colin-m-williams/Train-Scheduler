@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Shrikhand');
+@import url('https://fonts.googleapis.com/css?family=Prosto+One|Roboto');
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: #222;
   color: #fff;
-  /* background-image: url('../images/bg.png');
-  background-repeat: repeat; */
+  background-image: url('../images/pattern2.png');
+  background-repeat: repeat;
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Shrikhand', cursive;
+  font-family: 'Prosto One', cursive;
 }
 
 .container {
   background: rgba(22,22,22,0.8);
   margin-top: 7vh;
   border-radius: 25px;
-  border: 15px double #ff8c00;
+  border: 15px solid #ff8c00;
   padding: 0 40px 20px 40px;
 }
 

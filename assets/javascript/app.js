@@ -17,15 +17,23 @@ $(document).ready(function () {
         $('.current-time').html(moment().format('hh:mm:ss A'))
     }, 1000);
 
-
+    // Enable All Tooltips In The Document
+    $('[data-toggle="tooltip"]').tooltip();
+    // Hide All Content
     $('.content').hide();
+    $('.signOut').hide();
 
-    // Auth using a popup.
+    // Google Auth using a popup.
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('profile');
     provider.addScope('email');
 
-    $(document).on('click', '.signIn', function () {
+    // Create an instance of the GitHub provider object
+    var provider = new firebase.auth.GithubAuthProvider();
+    provider.addScope('client_id');
+
+    // Event listener for Signing in with Google
+    $(document).on('click', '.signInGoogle', function () {
         firebase.auth().signInWithPopup(provider).then(function (result) {
             // This gives you a Google Access Token.
             var token = result.credential.accessToken;
@@ -33,7 +41,7 @@ $(document).ready(function () {
             var user = result.user;
             $('.content').show();
             loggedIn();
-            console.log("User signed in");
+            console.log("User signed in with Google");
 
         }).catch(function (error) {
             // Handle Errors here.
@@ -43,26 +51,48 @@ $(document).ready(function () {
             var email = error.email;
             // The firebase.auth.AuthCredential type that was used.
             var credential = error.credential;
-            console.log(errorCode);
-            console.log(errorMessage);
-            console.log(email);
-            console.log(credential)
 
         });
-        $(this).removeClass('signIn')
-            .addClass('signOut')
-            .html('Sign Out Of Google');
+        $(this).hide();
+        $('.signInGitHub').hide();
+        $('.signOut').show();
     });
 
+    // Event Listener for Signing In with GitHub
+    $(document).on('click', '.signInGitHub', function () {
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+            // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            $('.content').show();
+            loggedIn();
+            console.log("User signed in with GitHub");
+
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+        });
+        $(this).hide();
+        $('.signInGoogle').hide();
+        $('.signOut').show();
+    });
+
+    // Event Listner for Signing Out
     $(document).on('click', '.signOut', function () {
         firebase.auth().signOut().then(function () {
             $('.content').hide();
         }, function (error) {
             // An error happened.
         });
-        $(this).removeClass('signOut')
-            .addClass('signIn')
-            .html('Sign In With Google To See Schedule');
+        $(this).hide();
+        $('.signInGoogle').show();
+        $('.signInGitHub').show();
     });
 
 

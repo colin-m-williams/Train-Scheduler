@@ -22,14 +22,20 @@
 	<div class="container">
 		<div class="jumbotron text-center">
 
-			<h1>Railtrac Scheduler
+			<h1>StarTrak Scheduler
 				<br/>
 				<small class="subtitle">Come on, ride the train, hey, ride it</small>
 				<br/>
 				<small class="current-time"></small>
 			</h1>
 
-			<button class="text-center btn btn-lg signIn">Sign In With Google To See Schedule</button>
+			<button class="text-center btn btn-lg signInGoogle" data-toggle="tooltip" data-placement="left" title="Sign Required to View Scheduler">
+				<img src="assets/images/auth_service_google.svg" alt="Google Logo">				
+			</button>
+			<button class="text-center btn btn-lg signInGitHub" data-toggle="tooltip" data-placement="right" title="Sign Required to View Scheduler">
+				<img src="assets/images/auth_service_github.svg" alt="GitHub Logo">
+			</button>
+			<button class="text-center btn btn-lg signOut">Sign Out <span class="glyphicon glyphicon-log-out" aria-hidden="true"		></span></button>
 
 
 		</div>
